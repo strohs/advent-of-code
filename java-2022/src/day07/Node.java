@@ -54,15 +54,6 @@ public class Node {
                 .orElseThrow(() -> new RuntimeException("could not find matching child dir " + name + " from parent dir " + this.name));
     }
 
-    /**
-     *
-     * @return the total size of this nodes child FILES
-     */
-    public long getTotalFileSizes() {
-        return this.children.stream()
-                .filter(n -> !n.isDir).mapToLong(n -> n.size)
-                .sum();
-    }
 
     /**
      *
@@ -74,21 +65,18 @@ public class Node {
                 .collect(Collectors.toList());
     }
 
-    public long computeSize() {
+    public void computeSize() {
         this.size = this.children.stream().mapToLong(n -> n.size).sum();
-        return this.size;
     }
 
 
     @Override
     public String toString() {
-        String childSize = children == null ? "null" : String.valueOf(children.size());
-        return "Node{" +
-                "parent=" + parent +
-                ", size=" + size +
-                ", name='" + name + '\'' +
-                ", isDir=" + isDir +
-                ", children=" + childSize +
-                '}';
+        String type = isDir ? "DIR " : "FILE";
+        int cDirs = getChildDirs().size();
+        long fDirs = children.stream().filter(n -> !n.isDir).count();
+        String parentName = parent == null ? "null" : parent.name;
+
+        return String.format("%s %s (%d) children:[dirs:%d files:%d]  parentDir: %s", type, name, size, cDirs, fDirs, parentName);
     }
 }
