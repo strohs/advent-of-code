@@ -1,0 +1,11 @@
+$ cd /
+$ ls
+268495 jgfbgjdb
+272455 pct.bbd
+200036 phthcq
+174378 qld
+130541 trhbvp.fmm
+dir twjcmp
+$ cd twjcmp
+$ ls
+86053 pct.bbd
