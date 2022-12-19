@@ -49,14 +49,14 @@ mod tests {
 
     #[test]
     fn test_part1() {
-        let path = Path::new("./input/d01-input.txt");
+        let path = Path::new("../input-2022/d01-input.txt");
         let sums = count_calories_p1(path);
         assert_eq!(sums[0], 33480);
     }
 
     #[test]
     fn test_part2() {
-        let path = Path::new("./input/d01-input.txt");
+        let path = Path::new("../input-2022/d01-input.txt");
         let mut sums:Vec<i32> = count_calories_p1(path);
         let sum = find_top_three(&mut sums);
         assert_eq!(sum, 207456);
