@@ -72,7 +72,7 @@ public class NoSpaceLeft {
     }
 
     /**
-     * computes the sizes of each node using a PostOrder traversal of the tree stored in 'root'
+     * computes the sizes of each node using an iterative PostOrder traversal of the tree stored in 'root'
      *
      * @param root Node of the tree to traverse
      */
@@ -91,6 +91,10 @@ public class NoSpaceLeft {
             s1.addAll(childDirs);
         }
 
+        // stack s2 will contain directory nodes in "post order traversal order".
+        // This helps to correctly compute the size of nodes since we need to compute the size of the child
+        // directories first, before their parents. We are essentially computing from the bottom of the tree
+        // to the top.
         while (!s2.isEmpty()) {
             Node temp = s2.pop();
             temp.computeSize();
