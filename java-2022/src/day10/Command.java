@@ -4,8 +4,6 @@ package day10;
  * A command that can be given to a Register
  */
 public interface Command {
-
-
     int getAmount();
 
     /**
