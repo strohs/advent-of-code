@@ -7,4 +7,5 @@ mod d05_supply_stacks;
 mod d07_no_space_left;
 mod d08_treetop_tree_house;
 mod d09_rope_bridge;
+mod d11_monkey_middle;
 

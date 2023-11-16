@@ -37,6 +37,7 @@ impl FileInfo {
 }
 
 #[derive(Debug, Clone)]
+#[allow(dead_code)]
 struct FileNode {
     parent: String,
     size: usize,
